@@ -18,6 +18,8 @@ NOTE :
 The Run_analysis script goes in the "UCI HAR Dataset" directory which
 also contains the train and test folders
 
+data.table and dplyr pakages are required to install
+
 ##COURSE PROJECT :
 
 The purpose of this project is to demonstrate our ability to collect, work with,
@@ -64,6 +66,9 @@ It is asked to perform from the previous data set an independant tidy data set
 with the average of each variables for each activity an each subjet.
 
 Tto make this operation, I used plyr package and its group_by() function.
+
+        tidy<-group_by(tbl,activity,subjectid)
+        tidydata<-summarise_each(tidy,funs(mean),3:68)
 
 The result from this step is the tidydata.txt included in this repo.
 

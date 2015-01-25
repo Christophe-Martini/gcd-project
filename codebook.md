@@ -2,9 +2,12 @@
 Getting and Cleaning Data Course Project
 ========================================
 
-Feature Selection in tidydata
+Features selection in tidydata
 =============================
 
+- subjectid : identifiers of the 30 volunters
+
+- activity : activity names of the activities performed by each volunters
 
 The features selected for this database come from an accelerometer and gyroscope 3-axial raw signals. 
 
@@ -37,7 +40,10 @@ Other strings which may be included in variable names correspond respectively to
 
 -  'x' 'y' 'z' denote the three-dimensional signals (3-axial signals) in the X, Y and Z directions
 
-VARIABLE CLEANING STEPS
+
+
+
+##VARIABLE CLEANING STEPS
 =======================
 
 some steps were necessary so as to make variable names tidy
@@ -53,6 +59,7 @@ strings "()" in variable names have been removed
 every string "-" in variable names have been removed and all the strings were lowered
 
 - keepedfeaturestreated<-tolower(as.character(gsub("-", "", keepedfeaturestreated, fixed = TRUE)))
+
 
 Below is the result of the cleaning process for each variable names conserved
 
@@ -190,3 +197,4 @@ fBodyBodyGyroMag-std() -> fbodygyromagstd
 fBodyBodyGyroJerkMag-mean() -> fbodygyrojerkmagmean
 
 fBodyBodyGyroJerkMag-std() -> fbodygyrojerkmagstd
+

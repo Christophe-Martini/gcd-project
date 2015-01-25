@@ -118,6 +118,6 @@ tidydata<-summarise_each(tidy,funs(mean),3:68)
 print("Write data file in tidydata.txt")
 write.table(tidydata,"./tidydata.txt",row.name=FALSE)
 rm(tidy,tbl)
-
+print("DONE!")
 
 
