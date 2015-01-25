@@ -18,7 +18,7 @@ NOTE :
 The Run_analysis script goes in the "UCI HAR Dataset" directory which
 also contains the train and test folders
 
-#COURSE PROJECT :
+##COURSE PROJECT :
 
 The purpose of this project is to demonstrate your ability to collect, work with,
 and clean a data set. The goal is to prepare tidy data that can be used for later analysis. 
@@ -43,7 +43,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 ##STEPS :
 
-In a first step:
+###In a first step:
 
 The process of getting and cleaning data leads to get ride off variables
 from the test set and training set so as to keep the relevant variables to put in a 
@@ -57,7 +57,7 @@ so as to obtain a dataset that contains variables such as
 - only the variables related to measurements on the mean and standard deviation
 
 
-In a second step
+###In a second step
 It is asked to perform from the previous data set an independant tidy data set
 with the average of each variables for each activity an each subjet.
 
