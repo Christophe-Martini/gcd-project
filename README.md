@@ -20,7 +20,7 @@ also contains the train and test folders
 
 ##COURSE PROJECT :
 
-The purpose of this project is to demonstrate your ability to collect, work with,
+The purpose of this project is to demonstrate our ability to collect, work with,
 and clean a data set. The goal is to prepare tidy data that can be used for later analysis. 
 
 The project consisted in elaborating a clean dataset from data disptached in
@@ -47,15 +47,17 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 The process of getting and cleaning data leads to get ride off variables
 from the test set and training set so as to keep the relevant variables to put in a 
+data set (see the codebook.md for further explanations).
 
-The Run_analysis script does the merging of all the data coming from these files
-so as to obtain a dataset that contains variables such as
+Thus, the Run_analysis script does the merging of all the data coming from these various 
+files so as to obtain a dataset that contains variables such as
 
 - the identifiers of the 30 volunters (subjectid)
 - the descriptive activity names to name the activities performed by each volunters
   (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) 
 - only the variables related to measurements on the mean and standard deviation
 
+  (see comments included in 'run_analysis.R' for further explanations).
 
 ###In a second step
 It is asked to perform from the previous data set an independant tidy data set
