@@ -86,11 +86,15 @@ from various defaults (see codebook for furher details).
 The 'subject_id_test' dataframe contains identifiers of the volunteers for generating the test data 
 loaded from the 'test/subject_test.txt'file
 
+The 'ytest' dataframe contains identifiers of activities loaded from the 'test/y_test.txt'file
+
 A first data set (mergedtest) is built on merging all data previously manuipulated
 and relevant about test set (subject_id_test,ytest,xtest). 
 
 The 'subject_id_train' dataframe contains identifiers of the volunteers for generating the train data 
 loaded from the 'train/subject_train.txt'file
+
+The 'ytrain' dataframe contains identifiers of activities loaded from the 'traint/y_train.txt'file
 
 A second data set (mergedtrain) is also built on the same way for data relevant about
 train set (subject_id_train,ytrain,xtrain).
