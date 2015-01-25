@@ -31,11 +31,11 @@ xtest<-x_test[filtercols]
 rm(x_test)
 
 keepedfeatures<-names(xtest)
-#strings "BodyBody" in variable names have been converted in "body"
+#strings "BodyBody" in variable names are converted in "body"
 keepedfeaturestreated<-sub("BodyBody", "Body", keepedfeatures, fixed = TRUE)
-#strings "()" in variable names have been removed
+#strings "()" in variable names are removed
 keepedfeaturestreated<-sub("()", "", keepedfeaturestreated, fixed = TRUE)
-#severy string "-" in variable names have been removed
+#severy string "-" in variable names are removed
 keepedfeaturestreated<-tolower(as.character(gsub("-", "", keepedfeaturestreated, fixed = TRUE)))
 #Replace variable names in xtest dataset by tidy ones
 names(xtest)<-keepedfeaturestreated
