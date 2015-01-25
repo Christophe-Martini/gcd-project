@@ -5,14 +5,14 @@ Getting and Cleaning Data Course Project
 Features selection in tidydata
 =============================
 
-- subjectid : identifiers of the 30 volunters
+- subjectid : identifiers of the 30 volunteers who carried out the experiment.
 
-- activity : activities performed by each volunters
+- activity : activities performed by each volunteers
               
         {LAYING,SITTING,STANDING,WALKING,WALKING_DOWNSTAIRS,WALKING_UPSTAIRS}
 
 The features selected for this database come from an accelerometer and gyroscope 3-axial raw signals.
-their values are numeric.
+Features values are normalized and bounded within [-1,1].
 
 Thus variable names in the tidydata base either contain in their name
 
