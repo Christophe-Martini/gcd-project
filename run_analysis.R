@@ -1,6 +1,9 @@
 #THE RUN_ANALYSIS SCRIPT GOES IN THE "UCI HAR Dataset" DIRECTORY 
 # WHICH ALSO CONTAINS THE TRAIN AND TEST FOLDERS
 
+# Set working directory UCI HAR Dataset
+#setwd("")
+
 #You should create one R script called run_analysis.R that does the following. 
 
 #1 Merges the training and the test sets to create one data set.
