@@ -87,8 +87,6 @@ train set.
 Eventually, mergedtest and mergedtrain datasets are merged together (mergedata) using rbindlist()
 function from data.table library.
 
-Thus, giving the intermediary dataset to perform further operations onto.
-
 The last manipulation for this first step consists in replacing the numeric values
 for activity variable by those more descriptive found in activity_labels.txt file
 (6 activities). These values replace the corresponding values (1,2,3,4,5,6)
@@ -101,7 +99,9 @@ from the 'activity' variable.
                 5 STANDING
                 6 LAYING
 
-  (see comments included in 'run_analysis.R' for further details).
+Thus, giving the intermediary dataset to perform further operations onto.
+ 
+ (see also comments included in 'run_analysis.R' for further details).
 
 ###Second step :
 
