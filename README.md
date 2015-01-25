@@ -113,7 +113,7 @@ To make this operation, I used dplyr package and its group_by() function.
         tidy<-group_by(tbl,activity,subjectid)
         tidydata<-summarise_each(tidy,funs(mean),3:68)
 
-The result from this step is the tidydata.txt included in this repo.
+The result from this step is given in the tidydata.txt file included in this repo.
 
 
 
