@@ -91,7 +91,7 @@ Thus, giving the intermediary dataset to perform further operations onto.
 
 The last manipulation for this first step consists in replacing the numeric values
 for activity variable by those more descriptive found in activity_labels.txt file
-(6 activities). These values replace the corresponding character values (1,2,3,4,5,6)
+(6 activities). These values replace the corresponding values (1,2,3,4,5,6)
 from the 'activity' variable.
 
                 1 WALKING
