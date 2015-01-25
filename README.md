@@ -26,7 +26,7 @@ The purpose of this project is to demonstrate our ability to collect, work with,
 and clean a data set. The goal is to prepare tidy data that can be used for later analysis. 
 
 The project consisted in elaborating a clean dataset from data disptached in
-the mutliple separate following files :
+the multiple separate following files :
 
 - features.txt': List of all features.
 
@@ -48,7 +48,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 ###First step:
 
 The process of getting and cleaning data leads to select variables
-from the test and training sets that are relevant for the project only.
+from the test and training sets files that are relevant for the project only.
 
 Thus, measurements on the mean and standard deviation for each measurement
 (66 variables) were selected only among 561 variables.
@@ -58,9 +58,9 @@ Thus, measurements on the mean and standard deviation for each measurement
 The Run_analysis script does the merging of all the data coming from these various 
 files so as to obtain a dataset that contains variables such as :
 
-- the identifiers of the 30 volunters (subjectid)
+- the identifiers of the 30 volunteers (subjectid)
 
-- the descriptive activity names to name the activities performed by each volunters
+- the descriptive activity names to name the activities performed by each volunteer
   (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) 
   
 - 66 variables related to measurements on the mean and standard deviation only.
@@ -71,10 +71,10 @@ The names for variables in Test and Training set are found in features.txt file
 (561 features). Before replacing the 66 variable names selected they are cleaned
 from various defaults (see codebook for furher details).
 
-A first data set (mergedtest) is build on merging all data previously manuipulated
+A first data set (mergedtest) is built on merging all data previously manuipulated
 and relevant about test set.
 
-A second data set (mergedtrain) is also build on the same way for data relevant about
+A second data set (mergedtrain) is also built on the same way for data relevant about
 train set.
 
 Eventually, mergedtest and mergedtrain datasets are merged together using rbindlist()
@@ -85,7 +85,7 @@ Thus, giving the intermediary dataset to perform further operations onto.
 The last manipulation for this first step consists in replacing the numeric values
 for activity variable by those more descriptive found in activity_labels.txt file
 (6 activities). These values replace the corresponding character values (1,2,3,4,5,6)
-from the activity variable.
+from the 'activity' variable.
 
                 1 WALKING
                 2 WALKING_UPSTAIRS
@@ -97,10 +97,11 @@ from the activity variable.
   (see comments included in 'run_analysis.R' for further details).
 
 ###In a second step
-It was asked to perform from the previous data set an independant tidy data set
-with the average of each variables for each activity an each subjet.
 
-Tto make this operation, I used plyr package and its group_by() function.
+It was asked to perform from the previous data set an independant tidy data set
+with the average of each variable for each activity and each subject.
+
+To make this operation, I used dplyr package and its group_by() function.
 
         tidy<-group_by(tbl,activity,subjectid)
         tidydata<-summarise_each(tidy,funs(mean),3:68)
