@@ -71,6 +71,13 @@ The names for variables in Test and Training set are found in features.txt file
 (561 features). Before replacing the 66 variable names selected they are cleaned
 from various defaults (see codebook for furher details).
 
+ - strings "BodyBody" in variable names have been converted in "body"
+
+ - strings "()" in variable names have been removed
+
+ - every string "-" in variable names have been removed and all the strings were lowered
+
+
 A first data set (mergedtest) is built on merging all data previously manuipulated
 and relevant about test set.
 
