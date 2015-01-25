@@ -57,14 +57,16 @@ VARIABLE CLEANING STEPS
 some steps were necessary so as to make variable names tidy
 
 strings "BodyBody" in variable names have been converted in "body"
-#keepedfeaturestreated<-sub("BodyBody", "Body", keepedfeatures, fixed = TRUE)
+
+- keepedfeaturestreated<-sub("BodyBody", "Body", keepedfeatures, fixed = TRUE)
 
 strings "()" in variable names have been removed
-#keepedfeaturestreated<-sub("()", "", keepedfeaturestreated, fixed = TRUE)
 
-every string "-" in variable names have been removed
+- keepedfeaturestreated<-sub("()", "", keepedfeaturestreated, fixed = TRUE)
 
-and all the strings were lowered
+every string "-" in variable names have been removed and all the strings were lowered
+
+- keepedfeaturestreated<-tolower(as.character(gsub("-", "", keepedfeaturestreated, fixed = TRUE)))
 
 Below is the result of the cleaning process for each variable names conserved
 
