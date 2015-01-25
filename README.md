@@ -96,7 +96,7 @@ from the 'activity' variable.
 
   (see comments included in 'run_analysis.R' for further details).
 
-###In a second step
+###Second step :
 
 It was asked to perform from the previous data set an independant tidy data set
 with the average of each variable for each activity and each subject.
