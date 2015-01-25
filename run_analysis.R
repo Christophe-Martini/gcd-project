@@ -1,14 +1,12 @@
+#THE RUN_ANALYSIS SCRIPT GOES IN THE "UCI HAR Dataset" DIRECTORY 
+# WHICH ALSO CONTAINS THE TRAIN AND TEST FOLDERS
+
 #You should create one R script called run_analysis.R that does the following. 
 
 #1 Merges the training and the test sets to create one data set.
 #2 Extracts only the measurements on the mean and standard deviation for each measurement. 
 #3 Uses descriptive activity names to name the activities in the data set
 #4 Appropriately labels the data set with descriptive variable names. 
-#5 From the data set in step 4, creates a second,
-# independent tidy data set with the average of each variable for each activity and each subject.
-
-#The Run_analysis script goes in the "UCI HAR Dataset" directory 
-# which also contains the train and test folders
 
 #projectDirectory<-"./UCI HAR Dataset/"
 
@@ -109,9 +107,12 @@ mergedata[activity==5,activity:="STANDING"]
 mergedata[activity==6,activity:="LAYING"]
 
 
+#5 From the data set in step 4, creates a second,
+#independent tidy data set with the average of each variable for each activity and each subject.
 
 tbl<-tbl_df(mergedata)
 rm(mergedata)
+
 tidy<-group_by(tbl,activity,subjectid)
 tidydata<-summarise_each(tidy,funs(mean),3:68)
 print("Write data file in tidydata.txt")

@@ -11,8 +11,6 @@ The features selected for this database come from an accelerometer and gyroscope
 Measurements on the mean and standard deviation for each measurement (66 variables)
 were selected only upon 561 variables.
 
-Others variables 
-
 Thus variable names in the tidata base either contain 
 
         - 'mean' to denote measurements on the mean

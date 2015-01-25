@@ -63,6 +63,8 @@ files so as to obtain a dataset that contains variables such as
 It is asked to perform from the previous data set an independant tidy data set
 with the average of each variables for each activity an each subjet.
 
+Tto make this operation, I used plyr package and its group_by() function.
+
 The result from this step is the tidydata.txt included in this repo.
 
 
