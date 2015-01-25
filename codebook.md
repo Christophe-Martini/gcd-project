@@ -6,9 +6,12 @@ Feature Selection in tidydata
 =============================
 
 
-The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
+The features selected for this database come from an accelerometer and gyroscope 3-axial raw signals. 
 
-Only measurements on the mean and standard deviation for each measurement were selected.
+Measurements on the mean and standard deviation for each measurement (66 variables)
+were selected only upon 561 variables.
+
+Others variables 
 
 Thus variable names in the tidata base either contain 
 
