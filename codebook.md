@@ -2,6 +2,9 @@
 Getting and Cleaning Data Course Project
 ========================================
 
+Tthe tidydata set presents a summary with average of each mean and standart deviation
+variable for each activity and each subject who carried out the experiment.
+
 Features selection in tidydata
 =============================
 
@@ -11,10 +14,9 @@ Features selection in tidydata
               
         {LAYING,SITTING,STANDING,WALKING,WALKING_DOWNSTAIRS,WALKING_UPSTAIRS}
 
-The features selected for this database come from an accelerometer and gyroscope 3-axial raw signals.
-Features values are normalized and bounded within [-1,1].
+ - The other 66 features selected for this dataset contain average for each activity and each subject.
 
-Thus variable names in the tidydata base either contain in their name
+  The variable names for these features in the tidydata base either contain in their name
 
 
         - 'mean' to denote measurements on the mean
@@ -42,27 +44,7 @@ Other strings which may be included in variable names correspond respectively to
 -  'x' 'y' 'z' denote the three-dimensional signals (3-axial signals) in the X, Y and Z directions
 
 
-
-
-##VARIABLE CLEANING STEPS
-=======================
-
-some steps were necessary so as to make variable names tidy
-
-strings "BodyBody" in variable names have been converted in "body"
-
-- keepedfeaturestreated<-sub("BodyBody", "Body", keepedfeatures, fixed = TRUE)
-
-strings "()" in variable names have been removed
-
-- keepedfeaturestreated<-sub("()", "", keepedfeaturestreated, fixed = TRUE)
-
-every string "-" in variable names have been removed and all the strings were lowered
-
-- keepedfeaturestreated<-tolower(as.character(gsub("-", "", keepedfeaturestreated, fixed = TRUE)))
-
-
-Below is the result of the cleaning process for each variable names conserved
+Below is the result of the cleaning process for each variable names conserved for this tidy dataset
 
 
 ORIGINAL VARIABLE NAMES -> VARIABLE NAMES AFTER CLEANING
