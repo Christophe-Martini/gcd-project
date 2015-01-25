@@ -82,6 +82,11 @@ from various defaults (see codebook for furher details).
 
  - every string "-" in variable names have been removed and all the strings were lowered
 
+'test/X_test.txt'
+
+The 'xtest' dataframe contains the 66 selected variables among the 561 variables loaded
+from 'test/X_test.txt' file. All the variable names are replaced by those found in 'features.txt'
+file after the cleaning proccess occured in a preliminary step.
 
 The 'subject_id_test' dataframe contains identifiers of the volunteers for generating the test data 
 loaded from the 'test/subject_test.txt'file. Its unique variable name is replaced by 'subjectid'
@@ -91,6 +96,10 @@ Its unique variable name is replaced by 'activity'.
 
 A first data set (mergedtest) is built on merging all data previously manuipulated
 and relevant about test set (subject_id_test,ytest,xtest). 
+
+The 'xtrain' dataframe contains the 66 selected variables among the 561 variables loaded
+from 'train/X_train.txt' file. All the variable names are replaced  by those found in
+'features.txt' file and after the cleaning proccess occured in a previous step.
 
 The 'subject_id_train' dataframe contains identifiers of the volunteers for generating the train data 
 loaded from the 'train/subject_train.txt'file. Its unique variable name is replaced by 'subjectid'
