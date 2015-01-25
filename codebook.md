@@ -9,6 +9,7 @@ Features selection in tidydata
 =============================
 
 - subjectid : identifiers of the 30 volunteers who carried out the experiment.
+        Its range is from 1 to 30.        
 
 - activity : activities performed by each volunteers
               

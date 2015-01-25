@@ -33,9 +33,13 @@ the multiple separate following files :
 
 - 'activity_labels.txt': Links the class labels with their activity name.
 
+- 'train/subject_train.txt': identifiers of the volunteers for generating the training data
+
 - 'train/X_train.txt': Training set.
 
 - 'train/y_train.txt': Training labels.
+
+- 'test/subject_test.txt' : identifiers of the volunteers for generating the test data
 
 - 'test/X_test.txt': Test set.
 
@@ -79,8 +83,14 @@ from various defaults (see codebook for furher details).
  - every string "-" in variable names have been removed and all the strings were lowered
 
 
+The 'subject_id_test' dataframe contains identifiers of the volunteers for generating the test data 
+loaded from the 'test/subject_test.txt'file
+
 A first data set (mergedtest) is built on merging all data previously manuipulated
-and relevant about test set (subject_id_test,ytest,xtest).
+and relevant about test set (subject_id_test,ytest,xtest). 
+
+The 'subject_id_train' dataframe contains identifiers of the volunteers for generating the train data 
+loaded from the 'train/subject_train.txt'file
 
 A second data set (mergedtrain) is also built on the same way for data relevant about
 train set (subject_id_train,ytrain,xtrain).
