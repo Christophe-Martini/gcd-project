@@ -2,7 +2,7 @@
 Getting and Cleaning Data Course Project
 ========================================
 
-Tthe tidydata set presents a summary with average of each mean and standart deviation
+The tidydata set is a summary with average of each mean and standart deviation
 variable for each activity and each subject who carried out the experiment.
 
 Features selection in tidydata

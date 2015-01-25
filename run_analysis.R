@@ -109,12 +109,11 @@ mergedata[activity==6,activity:="LAYING"]
 #independent tidy data set with the average of each variable for each activity and each subject.
 
 tbl<-tbl_df(mergedata)
-rm(mergedata)
 
 tidy<-group_by(tbl,activity,subjectid)
 tidydata<-summarise_each(tidy,funs(mean),3:68)
-print("Write data file in tidydata.txt")
-write.table(tidydata,"./tidydata.txt",row.name=FALSE)
+#print("Write data file in tidydata.txt")
+#write.table(tidydata,"./tidydata.txt",row.name=FALSE)
 rm(tidy,tbl)
 print("DONE!")
 

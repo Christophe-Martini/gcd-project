@@ -84,7 +84,7 @@ and relevant about test set.
 A second data set (mergedtrain) is also built on the same way for data relevant about
 train set.
 
-Eventually, mergedtest and mergedtrain datasets are merged together using rbindlist()
+Eventually, mergedtest and mergedtrain datasets are merged together (mergedata) using rbindlist()
 function from data.table library.
 
 Thus, giving the intermediary dataset to perform further operations onto.
