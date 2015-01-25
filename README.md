@@ -45,14 +45,17 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 ##STEPS :
 
-###In a first step:
+###First step:
 
-The process of getting and cleaning data leads to get ride off variables
-from the test set and training set that were no relevant from the project and 
-so as to keep the relevant variables to put in a data set
+The process of getting and cleaning data leads to select variables
+from the test and training sets that are relevant for the project only.
+
+Thus, measurements on the mean and standard deviation for each measurement
+(66 variables) were selected only among 561 variables.
+
 (see the codebook.md for further details).
 
-Thus, the Run_analysis script does the merging of all the data coming from these various 
+The Run_analysis script does the merging of all the data coming from these various 
 files so as to obtain a dataset that contains variables such as :
 
 - the identifiers of the 30 volunters (subjectid)
@@ -62,23 +65,34 @@ files so as to obtain a dataset that contains variables such as :
   
 - 66 variables related to measurements on the mean and standard deviation only.
 
+###
+
 The names for variables in Test and Training set are found in features.txt file
-(561 features). Before replacing the 66 variable names in data sets (x_test and x_train)
-they are cleaned from various defaults (see codebook for furher details).
+(561 features). Before replacing the 66 variable names selected they are cleaned
+from various defaults (see codebook for furher details).
 
-The values for activity variable are found in activity_labels.txt file
-(6 activities). These values replace the corresponding character values (1,2,3,4,5,6)
-from the activity variable.
+A first data set (mergedtest) is build on merging all data previously manuipulated
+and relevant about test set.
 
-A first data set (mergedtest) is build on merging all data previously treated 
-about test set.
+A second data set (mergedtrain) is also build on the same way for data relevant about
+train set.
 
-A second data set (mergedtrain) is also build on the same way.
-
-Eventually, mergedtest and mergedtrain are merged together using rbindlist()
+Eventually, mergedtest and mergedtrain datasets are merged together using rbindlist()
 function from data.table library.
 
 Thus, giving the intermediary dataset to perform further operations onto.
+
+The last manipulation for this first step consists in replacing the numeric values
+for activity variable by those more descriptive found in activity_labels.txt file
+(6 activities). These values replace the corresponding character values (1,2,3,4,5,6)
+from the activity variable.
+
+                1 WALKING
+                2 WALKING_UPSTAIRS
+                3 WALKING_DOWNSTAIRS
+                4 SITTING
+                5 STANDING
+                6 LAYING
 
   (see comments included in 'run_analysis.R' for further details).
 

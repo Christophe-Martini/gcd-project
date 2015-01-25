@@ -8,8 +8,6 @@
 #3 Uses descriptive activity names to name the activities in the data set
 #4 Appropriately labels the data set with descriptive variable names. 
 
-#projectDirectory<-"./UCI HAR Dataset/"
-
 library(data.table)
 library(dplyr)
 

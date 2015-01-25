@@ -7,14 +7,15 @@ Features selection in tidydata
 
 - subjectid : identifiers of the 30 volunters
 
-- activity : activity names of the activities performed by each volunters
+- activity : activities performed by each volunters
+              
+        {LAYING,SITTING,STANDING,WALKING,WALKING_DOWNSTAIRS,WALKING_UPSTAIRS}
 
-The features selected for this database come from an accelerometer and gyroscope 3-axial raw signals. 
+The features selected for this database come from an accelerometer and gyroscope 3-axial raw signals.
+their values are numeric.
 
-Measurements on the mean and standard deviation for each measurement (66 variables)
-were selected only upon 561 variables.
+Thus variable names in the tidydata base either contain in their name
 
-Thus variable names in the tidata base either contain 
 
         - 'mean' to denote measurements on the mean
 
