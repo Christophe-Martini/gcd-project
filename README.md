@@ -80,10 +80,10 @@ from various defaults (see codebook for furher details).
 
 
 A first data set (mergedtest) is built on merging all data previously manuipulated
-and relevant about test set.
+and relevant about test set (subject_id_test,ytest,xtest).
 
 A second data set (mergedtrain) is also built on the same way for data relevant about
-train set.
+train set (subject_id_train,ytrain,xtrain).
 
 Eventually, mergedtest and mergedtrain datasets are merged together (mergedata) using rbindlist()
 function from data.table library.
