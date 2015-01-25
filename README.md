@@ -50,8 +50,8 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 The process of getting and cleaning data leads to select variables
 from the test and training sets files that are relevant for the project only.
 
-Thus, measurements on the mean and standard deviation for each measurement
-(66 variables) were selected only among 561 variables.
+That is, measurements on the mean and standard deviation for each measurement
+(66 variables) were selected among 561 variables.
 
 (see the codebook.md for further details).
 
