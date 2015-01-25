@@ -1,4 +1,3 @@
-run_analysis<-function(){
 #You should create one R script called run_analysis.R that does the following. 
 
 #1 Merges the training and the test sets to create one data set.
@@ -10,26 +9,38 @@ run_analysis<-function(){
 
 #The Run_analysis script goes in the "UCI HAR Dataset" directory 
 # which also contains the train and test folders
-projectDirectory<-"./UCI HAR Dataset/"
+
+#projectDirectory<-"./UCI HAR Dataset/"
 
 library(data.table)
+library(dplyr)
 
 testDirectory<-"./test"
-trainDirectory<-"./train"
+trainDirectory<-"./train" 
 
 #Getting dataset as table from "x_test.txt" file
 x_test<-read.table(paste(testDirectory,"/x_test.txt",sep=""),stringsAsFactors=FALSE)
-#Getting dataset as table from "features.txt" 
+#Getting dataset as table from "features.txt" which contains names variables
 features<-read.table("features.txt",stringsAsFactors=FALSE)
-#Cleaning data from features dataset so as to become readable column names
-#to replace those from x_test dataset
-names(x_test)<-tolower(as.character(sub("()", "", features[,2], fixed = TRUE)))
 
-#Keep only vectors with column name containing mean() or std() in their string
-filtercols<-regexpr("\\-(mean|std)(-|$)",names(x_test))>0
+#replace name of each variables in x_test dataset by those from features dataset
+names(x_test)<-features[,2]
+#names(x_test)<-tolower(as.character(sub("()", "", features[,2], fixed = TRUE)))
+
+#Keep only variables with column name containing mean() or std() in their string
+filtercols<-regexpr("\\-(mean|std)(\\(\\))",names(x_test))>0
 xtest<-x_test[filtercols]
-colnames(xtest)<-gsub("body", "", colnames(xtest), fixed = TRUE)
 rm(x_test)
+
+keepedfeatures<-names(xtest)
+#strings "BodyBody" in variable names have been converted in "body"
+keepedfeaturestreated<-sub("BodyBody", "Body", keepedfeatures, fixed = TRUE)
+#strings "()" in variable names have been removed
+keepedfeaturestreated<-sub("()", "", keepedfeaturestreated, fixed = TRUE)
+#severy string "-" in variable names have been removed
+keepedfeaturestreated<-tolower(as.character(gsub("-", "", keepedfeaturestreated, fixed = TRUE)))
+#Replace variable names in xtest dataset by tidy ones
+names(xtest)<-keepedfeaturestreated
 
 
 #Getting dataset as table from "subject_test.txt" 
@@ -40,31 +51,26 @@ names(subject_id_test)<-"subjectid"
 #Getting dataset as table from "y_test.txt" 
 y_test<-read.table(paste(testDirectory,"/y_test.txt",sep=""))
 names(y_test)<-"activity"
-
+#converting numeric values as characters
 ytest<-data.frame(activity=as.character(y_test[,1]),stringsAsFactors=FALSE)
 #remove from memory useless object(s)
 rm(y_test)
 
 #Merging subject_id, y_test and xtest datasests together as a data.table
 mergedtest<-data.frame(subject_id_test,ytest,xtest,stringsAsFactors=FALSE)
-colnames(mergedtest)<-gsub(".", "", colnames(mergedtest), fixed = TRUE)
 #remove from memory useless object(s)
 rm(subject_id_test,ytest,xtest)
-
-#mergedtest<-x_test[,(regexpr("(mean)|(std)",names(x_test)>0)==TRUE)]
-#mergedtest<-x_test[,(regexpr("\\-mean\\-|\\-std\\-",names(x_test)>0)==TRUE]
-#mergedtest<-x_test[,(regexpr("\\-mean\\-|\\-std\\-",names(x_test)>0)==TRUE]
-#filtercols<-regexpr("\\-mean$|\\-std$",names(x_test))>0
-
+################################################################################
 #Getting dataset as table from "x_train.txt" file
 x_train<-read.table(paste(trainDirectory,"/x_train.txt",sep=""),stringsAsFactors=FALSE)
 #Cleaning data from features dataset so as to become readable column names
 #to replace those from x_train dataset
-names(x_train)<-tolower(as.character(sub("()", "", features[,2], fixed = TRUE)))
+names(x_train)<-features[,2]
 xtrain<-x_train[filtercols]
-colnames(xtrain)<-gsub("body", "", colnames(xtrain), fixed = TRUE)
+#Replace variable names in xtest dataset by tidy ones
+names(xtrain)<-keepedfeaturestreated
 #remove from memory useless object(s)
-rm(features,x_train)
+rm(features,keepedfeatures,keepedfeaturestreated,x_train)
 #Getting dataset as table from "subject_train.txt" 
 subject_id_train<-read.table(paste(trainDirectory,"/subject_train.txt",sep=""))
 #Rename first colum name by "subject_id"
@@ -80,7 +86,6 @@ rm(y_train)
 
 #Merging subject_id_train, ytrain and xtrain datasests together as a data.table
 mergedtrain<-data.frame(subject_id_train,ytrain,xtrain,stringsAsFactors=FALSE)
-colnames(mergedtrain)<-gsub(".", "", colnames(mergedtrain), fixed = TRUE)
 #remove from memory useless object(s)
 rm(subject_id_train,ytrain,xtrain)
 #Merging mergedtrain and mergedtest data.tabless all together
@@ -106,9 +111,14 @@ mergedata[activity==6,activity:="LAYING"]
 
 #writing the data.tables into a file named "gcd_project.txt"
 print("Write data file in gcd_project.txt")
-write.table(mergedata,"./gcd_project.txt")
+
+
+tbl<-tbl_df(mergedata)
+tidy<-group_by(tbl,activity,subjectid)
 
 tidydata<-summarise_each(tidy,funs(mean),3:68)
+write.table(tidydata,"./tidydata.txt",row.name=FALSE)
 
-}
+
+
 
