@@ -109,16 +109,14 @@ mergedata[activity==5,activity:="STANDING"]
 mergedata[activity==6,activity:="LAYING"]
 
 
-#writing the data.tables into a file named "gcd_project.txt"
-print("Write data file in gcd_project.txt")
-
 
 tbl<-tbl_df(mergedata)
+rm(mergedata)
 tidy<-group_by(tbl,activity,subjectid)
-
 tidydata<-summarise_each(tidy,funs(mean),3:68)
+print("Write data file in tidydata.txt")
 write.table(tidydata,"./tidydata.txt",row.name=FALSE)
-
+rm(tidy,tbl)
 
 
 
